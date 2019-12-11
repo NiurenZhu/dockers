@@ -1,0 +1,11 @@
+# file
+~*
+*_log_*.txt
+*.tmp
+*.tar
+*.zip
+
+# folder
+
+# mac files
+.DS_Store
