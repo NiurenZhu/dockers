@@ -1,0 +1,9 @@
+# Package Files #
+b1/packages
+
+# temp files
+*~
+nginx/html
+
+# mac files
+.DS_Store
