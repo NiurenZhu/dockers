@@ -38,7 +38,7 @@ docker run \
    --name ${NAME} \
    -m ${MEM} \
    -p ${PORT}:80 \
-   -v ${HTML_FOLDER}:/usr/share/nginx/html \
+   -v ${HTML_FOLDER}:/home/niurenzhu/Codes/ \
    -v ${CONFIG_FOLDER}:/etc/nginx/conf.d \
    -d nginx:alpine
 # 显示创建结果
