@@ -8,7 +8,7 @@ echo '    1. 尝试运行MSSQL容器。                                         
 echo '    2. 去除数据库密码复杂要求。                                             '
 echo '         ALTER LOGIN [sa] WITH CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF;      '
 echo '    3. 修改数据库密码。                                                     '
-echo '         ALTER LOGIN [sa] WITH PASSWORD = ''1q2w3e'';                       '
+echo '         ALTER LOGIN [sa] WITH PASSWORD = '\'1q2w3e\'';                       '
 echo '****************************************************************************'
 # 设置参数变量
 WORK_FOLDER=$PWD
@@ -31,4 +31,4 @@ docker start ${NAME} ||
       -e ACCEPT_EULA=Y \
       -e MSSQL_SA_PASSWORD=${PASSWD} \
       -e MSSQL_PID=Developer \
-      -d microsoft/mssql-server-linux
+      -d mcr.microsoft.com/mssql/server:2017-latest
