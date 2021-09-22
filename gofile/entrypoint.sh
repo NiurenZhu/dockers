@@ -15,11 +15,16 @@ if [ ! -e /etc/filebrowser/.filebrowser.json ]; then
     "address": "",
     "log": "stdout",
     "database": "/etc/filebrowser/database.db",
-    "root": "/home/files",
-    "commands": "cd ls cp mkdir mv rm cat echo touch find chmod clear more tar unzip unrar gunzip gzip dos2unix curl wget ftpget ftpput ping git gost"
+    "root": "/home/files"
 }
 EOF
 fi
+if [ ! -e /etc/filebrowser/database.db ]; then
+    filebrowser config init
+    filebrowser config set --commands "cd,ls,cp,mkdir,mv,rm,ln,cat,echo,touch,find,chmod,more,free,df,tar,unzip,unrar,curl,wget,aria2c,ping,telnet,scp,ssh"
+    filebrowser users add "admin" "1q2w3e"
+fi
+# filebrowser - a nas
 nohup filebrowser &
-# gost - an proxy
-gost -L http://:8080 -L "mws://:8090?compression=true" -D
+# gost - a proxy
+gost -D -F http://:8080 -F http2://:8443 -L ss://chacha20:1q2w3e@:8338
