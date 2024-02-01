@@ -8,22 +8,11 @@ USER 0
 RUN set -x \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
-    curl \
-    ttf-wqy-microhei \
-    scim-pinyin scim-im-agent scim-gtk-immodule \
+    curl aria2 iputils-ping telnet \
+    ttf-wqy-zenhei xarchiver thunar-archive-plugin \
     # 删除源
-    && apt-get autoremove -y \
     && apt-get autoclean \
     && rm -rf /var/lib/apt/lists/*
-
-# 配置输入法
-RUN \
-    echo     '# SCIM'                             >/etc/profile.d/scim.sh \
-    && echo  'export XMODIFIERS="@im=SCIM"'       >>/etc/profile.d/scim.sh \
-    && echo  'export GTK_IM_MODULE="scim"'        >>/etc/profile.d/scim.sh \
-    && echo  'export XIM_PROGRAM="scim -d"'       >>/etc/profile.d/scim.sh \
-    && echo  'export QT_IM_MODULE="scim"'         >>/etc/profile.d/scim.sh \
-    && echo  'scim -d'                            >>/etc/profile.d/scim.sh
 
 # 调整参数
 ENV \
